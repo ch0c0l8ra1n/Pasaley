@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Pasaley",
+  "version": "0.1.0",
+  "description": "Suggests Hamrobazaar products on Daraz.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.daraz.com.np/products/*"],
+      "js": ["index.js"],
+      "css": ["index.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
