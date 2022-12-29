@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Pasaley",
-  "version": "0.1.0",
-  "description": "Suggests Hamrobazaar products on Daraz.",
+  "version": "0.2.0",
+  "description": "Suggests Hamrobazar, Gyapu and Sastodeal products on Daraz.",
   "content_scripts": [
     {
       "matches": ["https://www.daraz.com.np/products/*"],

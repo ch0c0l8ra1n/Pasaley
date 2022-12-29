@@ -4,6 +4,9 @@ const asleep =  (delay) => {
     return new Promise(resolve => setTimeout(resolve,delay));
 }
 
+// const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "https://www.shakenep.com";
+
 (async () => {
 
     while(!document.getElementsByClassName("pdp-product-title")[0]){
@@ -24,12 +27,14 @@ const asleep =  (delay) => {
             .trim()
     );
 
-    const url = new URL(`https://www.shakenep.com/matches`);
+    const url = new URL(`${BASE_URL}/matches`);
     const params = {
         title: name,
-        category: cat,
-        price:price
+        price:price,
+        category:cat,
+        pathname: document.location.pathname
     }
+
     Object.keys(params).forEach(key => url.searchParams.append(key,params[key]));
 
     console.log("Getting: ",url);
@@ -54,24 +59,42 @@ const asleep =  (delay) => {
 
     const noImageLink = "https://hamrobazaar.obs.ap-southeast-3.myhuaweicloud.com/Assets/NoImage.png";
 
+
     for (const item of result){
 
-        let imageLink = item.imageUrl ? item.imageUrl : noImageLink;
+        let imageLink = item.image ? item.image : noImageLink;
+        console.log(item);
+
+        // Get hostname from link and trim www.
+        const hostname = new URL(item.link).hostname
+                        .replace("www.","");
+
+
+
+
+
 
         const html = `
         <div style="padding: 5px;">
-            <a href="https://hamrobazaar.com/product/dummy/${item.id}" target="_blank">
+            <a href="${item.link}" target="_blank">
                 <div style="display: flex;padding: 5px;">
                     <div style="width: 50px">
-                        <img style="width:50px;" src="${imageLink}"/>
+                        <img style="width:50px; height:50px" src="${imageLink}"/>
                     </div>
                     <div style="display: flex; flex-direction: column; padding: 0px 5px">
-                        <div style="flex-grow: 1; font-size: 1.5em;">${item.name}</div>
+                        <div style="flex-grow: 1; font-size: 1.5em;">
+                            ${item.title}
+                            <img style="border: 1px solid black; border-radius: 5px; height:15px" src="${BASE_URL}/static/${hostname}.png"/>
+                        </div>
                         <div style="color: #f57224; font-size: 2em;">Rs. ${item.price}</div>
                     </div>
                 </div>
             </a>
         </div>
+        
+        <div style="display: flex; justify-content: center">
+            <hr style="width: 90%"/>
+        <div>
         `;
 
 
@@ -91,7 +114,12 @@ const asleep =  (delay) => {
         newContainer.append(tempContainer);
     }
 
+    if (newContainer.children.length > 0){
+        newContainer.lastChild.lastChild.remove();
+    }
+
     newContainer.style["border"] = "1px solid black";
+    newContainer.style["fontSize"] = "10px";
 
     domElem.append(newContainer);
 
