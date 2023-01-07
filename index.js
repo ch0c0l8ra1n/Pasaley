@@ -69,29 +69,24 @@ const BASE_URL = "https://www.shakenep.com";
         const hostname = new URL(item.link).hostname
                         .replace("www.","");
 
-
-
-
-
-
         const html = `
-        <div style="padding: 5px;">
+        <div class="pasaley-container" >
             <a href="${item.link}" target="_blank">
-                <div style="display: flex;padding: 5px;">
-                    <div style="width: 50px">
-                        <img style="width:50px; height:50px" src="${imageLink}"/>
+                <div class="product-container" >
+                    <div class="product-image" >
+                        <img 
+                         src="${imageLink}"/>
                     </div>
-                    <div style="display: flex; flex-direction: column; padding: 0px 5px">
-                        <div style="flex-grow: 1; font-size: 1.5em;">
-                            ${item.title}
-                            <img style="border: 1px solid black; border-radius: 5px; height:15px" src="${BASE_URL}/static/${hostname}.png"/>
+                    <div class="product-details" >
+                        <div class="product-title" > ${item.title} </div>
+                        <div class="product-source">
+                            <img  src="${BASE_URL}/static/${hostname}.png"/>
                         </div>
-                        <div style="color: #f57224; font-size: 2em;">Rs. ${item.price}</div>
+                        <div class="product-price"> Price: Rs. ${item.price}</div>
                     </div>
                 </div>
             </a>
         </div>
-        
         <div style="display: flex; justify-content: center">
             <hr style="width: 90%"/>
         <div>
