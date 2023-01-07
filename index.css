@@ -1,5 +1,10 @@
 /* LMAO */
 
+:root {
+    --daraz-orange: #f85606;
+    --daraz-blue: #199cb7;
+  }
+
 .pdp-mod-product-price ~ ul {
   position: relative;
   border: 1px solid rgba(223, 223, 223, 0.774) !important;
@@ -14,25 +19,19 @@
 
 .pdp-mod-product-price ~ ul::before {
   content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   background-image: url(https://i.imgur.com/7o9OHs8.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   display: block;
+  margin: 10px auto;
   width: 50%;
   height: 46px;
 }
 
-.pdp-mod-product-price ~ ul li:first-child {
-  margin-top: 60px;
-}
-
-.pdp-mod-product-price ~ ul li:not(:last-child) {
-  margin-bottom: 20px;
-  border-bottom: 1px solid #f85606;
+.pdp-mod-product-price ~ ul li {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--daraz-orange);
 }
 
 .pasaley-container {
@@ -46,24 +45,23 @@
   transform: scale(1.05);
 }
 
-.pdp-mod-product-price + ul li .pasaley-container ~ div {
-  display: none;
+.pasaley-container ~ div {
+  display: none !important;
 }
 
 .product-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
 }
 
 .product-image img {
-  width: 100px;
+  width: 120px;
 }
 
 .product-details {
   width: 100%;
-  margin-left: 30px;
+  margin-left: 40px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -72,11 +70,11 @@
 .product-title {
   font-size: 1.5em !important;
   font-weight: bold;
-  color: #199cb7;
+  color: var(--daraz-blue);
 }
 
 .pasaley-container:hover .product-title {
-  color: #f85606;
+  color: var(--daraz-orange);
 }
 
 .product-source img {
@@ -86,5 +84,5 @@
 .product-price {
   font-size: 1.5em !important;
   font-weight: bold;
-  color: #f85606;
+  color: var(--daraz-orange);
 }
