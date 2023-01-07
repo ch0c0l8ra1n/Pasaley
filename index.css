@@ -19,19 +19,25 @@
 
 .pdp-mod-product-price ~ ul::before {
   content: "";
-  background-image: url(https://i.imgur.com/7o9OHs8.png);
+  background-image: url(https://i.imgur.com/NqVhrES.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   display: block;
   margin: 10px auto;
   width: 50%;
-  height: 46px;
+  height: 43px;
+  border-bottom: 2px dashed #9b9e89;
 }
 
 .pdp-mod-product-price ~ ul li {
   padding: 20px 0;
   border-bottom: 1px solid var(--daraz-orange);
+}
+
+.pdp-mod-product-price ~ ul li:last-child {
+    border-bottom: none;
+    padding-bottom: 10px;
 }
 
 .pasaley-container {
