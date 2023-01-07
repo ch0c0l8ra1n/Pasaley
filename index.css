@@ -46,7 +46,7 @@
   transform: scale(1.05);
 }
 
-.pdp-mod-product-price + ul li .pasaley-container ~ div hr {
+.pdp-mod-product-price + ul li .pasaley-container ~ div {
   display: none;
 }
 
